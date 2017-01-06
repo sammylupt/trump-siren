@@ -1,16 +1,23 @@
 {
-  "name": "blink",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
+  "name": "trump-siren",
+  "version": "0.0.0",
+  "description": "Tessel project",
+  "main": "siren.js",
   "dependencies": {
     "colors": "^1.1.2",
     "dotenv": "^2.0.0",
+    "johnny-five": "^0.10.6",
+    "tessel-io": "^0.10.1",
     "twit": "^2.2.5"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git://github.com/scottluptowski/trump-siren.git",
+  "keywords": [
+    "Tessel"
+  ],
+  "license": "MIT",
+  "readme": "Turning on a police siren"
 }
