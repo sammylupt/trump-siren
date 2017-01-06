@@ -15,30 +15,34 @@ const T = new Twit({
 
 const TWITTER_USER_ID = "816025856892141569"
 
+const log = (text) => {
+  log(`${new Date()}: ${text}`)
+}
+
 const board = new five.Board({
   io: new Tessel()
 })
 
 board.on("ready", () => {
-  console.log("ready")
+  log("ready")
   const relay = new five.Relay({pin: "b7", type: "NC"})
-  console.log("relay created")
+  log("relay created")
 
   relay.on()
-  console.log("relay turned on")
+  log("relay turned on")
 
   setTimeout(() => {
     relay.off()
-    console.log("relay turned off")
+    log("relay turned off")
   }, 3000)
 
   const stream = T.stream("statuses/filter", { follow: TWITTER_USER_ID })
   stream.on("connect", () => {
-    console.log(colors.underline("Attempting to connect"))
+    log(colors.underline("Attempting to connect"))
   })
 
   stream.on("connected", (response) => {
-    console.log(colors.green("Connected!"))
+    log(colors.green("Connected!"))
   })
 
   stream.on("tweet", (tweet) => {
