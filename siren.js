@@ -16,7 +16,7 @@ const T = new Twit({
 const TWITTER_USER_ID = "816025856892141569"
 
 const log = (text) => {
-  log(`${new Date()}: ${text}`)
+  console.log(`${new Date()}: ${text}`)
 }
 
 const board = new five.Board({
@@ -29,11 +29,11 @@ board.on("ready", () => {
   log("relay created")
 
   relay.on()
-  log("relay turned on")
+  log(colors.red("Light switched on"))
 
   setTimeout(() => {
     relay.off()
-    log("relay turned off")
+    log(colors.red("Light switched off"))
   }, 3000)
 
   const stream = T.stream("statuses/filter", { follow: TWITTER_USER_ID })
